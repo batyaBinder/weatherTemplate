@@ -1,0 +1,61 @@
+.custom-container {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+  }
+  
+  .custom-dropdown,
+  .custom-button {
+    height: 15px;
+    font-size: 15px;
+  }
+
+.custom-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-container {
+  display: flex;
+  width: 100%;
+  padding-bottom: 20px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.custom-input {
+  flex: 1;
+  height: 100%;
+}
+
+.custom-button {
+  width: 220px;
+  font-size: 16px;
+  height: auto;
+  
+}
+
+
+.weather-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 1200px; 
+  margin: auto;
+}
+.forecast
+{
+  flex-grow: 4
+}
+.weather-card
+{
+  flex-grow: 1;
+}
+
+
+

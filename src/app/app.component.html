@@ -1,0 +1,32 @@
+<div id="app-wrapper">
+  <header class="app-header">
+    <div class="header-left">
+      <h1 class="app-title">WeatherMe</h1>
+    </div>
+    <div class="header-right">
+      <div class="link-wrapper">
+        <i class="pi pi-search"></i>
+        <p routerLink="/search">Search</p>
+      </div>
+      <div class="temperature-toggle">
+        <label>Temperature in Fahrenheit</label>
+        <p-toggleswitch [(ngModel)]="temperatureInFahrenheit" (onChange)="changeTemperatureUnit()" inputId="switch1" />
+      </div>
+      <button class="theme-toggle" (click)="toggleTheme()">
+        <i class="pi" [ngClass]="{'pi-moon': isDarkMode, 'pi-sun': !isDarkMode}"></i>
+      </button>
+    </div>
+  </header>
+
+   @if(displayLoading)
+   {
+  <div id="loader" >
+    <p-progressBar mode="indeterminate"></p-progressBar>
+  </div>
+   }
+
+
+  <div id="content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>

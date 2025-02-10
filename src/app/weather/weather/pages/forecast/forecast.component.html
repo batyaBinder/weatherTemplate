@@ -1,0 +1,18 @@
+ 
+ @if(forecastData)
+        {  <div class="forecast-container">
+  
+            <h2 class="forecast-title">{{ forecastData.Headline.Text }}</h2>
+  
+    <div class="daily-forecast-list">
+       
+      <app-daily-forecast 
+        *ngFor="let daily of forecastData?.DailyForecasts"
+        [forecast]="daily">
+      </app-daily-forecast>
+    
+    </div>
+
+  </div>
+}
+  

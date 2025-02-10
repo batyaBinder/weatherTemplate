@@ -1,0 +1,29 @@
+
+<a [href]="forecast.Link" target="_blank" class="refStyle grid grid-cols-12 gap-4">
+
+<div class="daily-forecast-card daily-forecast">
+    <h3 class="date">{{ forecast.Date | date: 'EEE, MMM d' }}</h3>
+    
+    <div class="weather-details">
+      <img [src]="getWeatherIconUrl()" [alt]="forecast.Day.IconPhrase" class="weather-icon"/>
+      
+      <div class="temp-range">
+        <p>
+           @if(this.showFahrenheit )
+           {
+            <strong>{{ forecast.Temperature.Minimum.Value }}°{{ forecast.Temperature.Minimum.Unit }}</strong> - 
+           <strong>{{ forecast.Temperature.Maximum.Value }}°{{ forecast.Temperature.Maximum.Unit }}</strong>
+           } 
+           @else
+           {
+            <strong>{{fahrenheitToCelsius(forecast.Temperature.Minimum.Value) }}°C </strong> - 
+            <strong>{{ fahrenheitToCelsius(forecast.Temperature.Maximum.Value) }}°C</strong>
+           }  
+        </p> 
+      </div>
+    </div>
+  
+    <p class="description"><i class="pi pi-sun"></i> {{ forecast.Day.IconPhrase }}</p>
+  </div>
+  </a>
+  

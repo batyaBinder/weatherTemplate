@@ -1,0 +1,165 @@
+// .weather-card {
+//     max-height: 400px;
+//     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+//     color: white;
+//     padding: 20px;
+//     border-radius: 15px;
+//     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+//     text-align: center;
+//   }
+  
+//   .header {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 10px;
+//   }
+  
+//   .header img {
+//     width: 50px;
+//     height: 50px;
+//   }
+  
+//   .temperature h3 {
+//     font-size: 2rem;
+//     font-weight: bold;
+//   }
+  
+//   .details p {
+//     margin: 5px 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 5px;
+//   }
+  
+//   .footer {
+//     margin-top: 15px;
+//   }
+  
+//   .footer a {
+//     background-color: white;
+//     color: #0078d4;
+//     padding: 10px 15px;
+//     border-radius: 20px;
+//     text-decoration: none;
+//     font-weight: bold;
+//     transition: all 0.3s;
+//   }
+  
+//   .footer a:hover {
+//     background-color: #0078d4;
+//     color: white;
+//   }
+  
+
+/* Card container */
+.weather-card {
+    max-width: 100%;  /* מתאים לכל רוחב המסך */
+    min-height: 350px;  /* מתאים לכל רוחב המסך */
+    min-width: 150px; /* מונע שהכרטיס יהפוך קטן מדי */    
+    width: 100%;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* מיישר אלמנטים במרכז */
+    justify-content: center;
+    overflow: hidden; /* מונע בריחה של תוכן */
+}
+
+
+/* Header section */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Weather icon */
+.header img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Temperature styling */
+.temperature h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Details section */
+.details {
+    margin-top: 15px; /* Add space between temperature and details */
+}
+
+/* Each detail item */
+.details p {
+    word-wrap: break-word; /* מונע בריחת טקסט */
+    text-align: center;
+    font-size: 1rem;
+    overflow-wrap: break-word;
+}
+
+
+/* Footer section */
+.footer {
+    margin-top: 20px;
+}
+
+/* "More Details" link styling */
+.footer a {
+    background-color: white;
+    color: #0078d4;
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+/* Hover effect for the link */
+.footer a:hover {
+    background-color: #0078d4;
+    color: white;
+}
+
+.refStyle {
+    text-decoration: none; /* מסיר קו תחתון של הקישור */
+    color: inherit; /* שומר על הצבעים של הטקסט */
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .refStyle:hover {
+    transform: scale(1.05); /* מגדיל קלות */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 600px) {
+    .weather-card {
+        padding: 15px;
+        max-width: 90%; /* מבטיח שהכרטיס לא יחרוג מהרוחב */
+    }
+
+    .temperature h3 {
+        font-size: 1.5rem; /* טקסט קטן יותר במסכים קטנים */
+    }
+
+    .details p {
+        font-size: 0.9rem; /* כותרות קטנות יותר */
+    }
+
+    .footer a {
+        font-size: 0.9rem; /* כפתור קטן יותר */
+    }
+}
+

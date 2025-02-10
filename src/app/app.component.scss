@@ -1,0 +1,213 @@
+#app-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    #loader{
+        position:absolute;
+        width: 100%;
+    }
+
+    #sidenav-container {
+        width: 200px;
+        padding: 20px;
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+
+        h1 {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 30px;
+            margin-bottom: 50px;
+        }
+
+        .link-wrapper {
+            display: flex;
+            flex-direction: row;
+
+            p {
+                color: black;
+                font-size: 18px;
+                margin-bottom: 30px;
+                cursor: pointer;
+            }
+    
+            mat-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+        }
+
+        #slide-toggle {
+            label {
+                font-size: 13px;
+            }
+        }
+
+    }
+
+    #content-wrapper {
+        margin: 20px;
+        //background-color: #f7f2f2;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+
+}
+
+/* Global Styles */
+#app-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .app-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    font-size: 24px;
+  }
+  
+  .app-title {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .link-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .link-wrapper:hover {
+    color: #00B5B8;
+  }
+  
+  .sidenav {
+    background-color: #f4f4f4;
+    width: 250px;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  #content-wrapper {
+    margin-left: 250px;
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  
+  /* Make it responsive */
+  @media screen and (max-width: 768px) {
+    .app-header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    #content-wrapper {
+      margin-left: 0;
+    }
+  
+    .sidenav {
+      position: absolute;
+      left: -250px;
+      top: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+  
+    #app-wrapper.open-sidenav #sidenav-container {
+      left: 0;
+    }
+  
+    .header-right {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  /* Dark Mode */
+body.dark-theme {
+  background-color: #121212; /* צבע רקע כהה */
+  color: #e0e0e0; /* צבע טקסט בהיר */
+}
+
+body.dark-theme .app-header {
+  background: linear-gradient(135deg, #1f2c44 0%, #23395d 100%); /* צבע רקע כהה בכותרת */
+}
+
+body.dark-theme .app-title {
+  color: #ffffff; /* צבע לבן לכותרת */
+}
+
+body.dark-theme .link-wrapper {
+  color: #b0bec5; /* צבע בהיר לקישורים */
+}
+
+body.dark-theme .theme-toggle {
+  background: #333333; /* צבע רקע כהה לכפתור */
+}
+body.dark-theme #app-wrapper {
+  background-color: #121212; /* שינוי רקע */
+}
+body.dark-theme #content-wrapper {
+  background-color: #2c2c2c; /* רקע כהה לתוכן */
+  border-radius: 10px;
+}
+
+body.dark-theme .header-left, body.dark-theme .header-right {
+  color: #e0e0e0; /* צבע בהיר לטקסט */
+}
+
+body.dark-theme .theme-toggle i.pi-sun {
+  color: #ffeb3b; /* צבע צהוב לשמש */
+}
+
+body.dark-theme .theme-toggle i.pi-moon {
+  color: #f1f1f1; /* צבע בהיר לירח */
+}
+
+/* התאמת כפתור המעבר בין יחידות טמפרטורה */
+body.dark-theme .temperature-toggle label {
+  color: #e0e0e0; /* צבע טקסט בהיר */
+}
+
+/* עבור Media Queries */
+@media (max-width: 768px) {
+  body.dark-theme .app-header {
+    background: linear-gradient(135deg, #1f2c44 0%, #23395d 100%);
+  }
+
+  body.dark-theme .sidenav {
+    background-color: #2c2c2c; /* סיידבר כהה */
+    color: #e0e0e0; /* צבע טקסט בהיר */
+  }
+
+  body.dark-theme .header-left {
+    color: #ffffff; /* צבע בהיר לכותרת */
+  }
+}
+
+
+  
+  

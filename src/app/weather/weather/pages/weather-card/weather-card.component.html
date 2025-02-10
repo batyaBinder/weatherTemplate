@@ -1,0 +1,35 @@
+
+@if(weather)
+    {<div class="container">
+    
+    <a [href]="weather.Link" target="_blank" class="refStyle grid grid-cols-12 gap-4">
+        <div class="weather-card grid grid-cols-12 gap-4">
+            <div class="header col-span-3">
+                <h2>{{ weather.WeatherText }}</h2>
+                <img [src]="getWeatherIconUrl()" alt="Weather Icon" />
+            </div>
+            @if(!showFahrenheit)
+            {
+            <div class="temperature col-span-3 col-3">
+                <h3>{{ weather.Temperature.Metric.Value }}°{{ weather.Temperature.Metric.Unit }}</h3>
+            </div>
+            }
+            @else
+            {
+            <div class="temperature col-span-3 col-3">
+                <h3>{{ weather.Temperature.Imperial.Value }}°{{ weather.Temperature.Imperial.Unit }}</h3>
+            </div>
+            }
+            <div class="details col-span-3 col-3">
+                <p><i class="pi pi-clock"></i> {{ weather.LocalObservationDateTime | date: 'short' }}</p>
+                <p><i class="pi pi-sun"></i> {{ weather.IsDayTime ? 'Daytime' : 'Night' }}</p>
+                <p *ngIf="weather.HasPrecipitation">
+                    <i class="pi pi-cloud"></i> {{ weather.PrecipitationType }} ({{ weather.PrecipitationIntensity }})
+                </p>
+            </div>
+
+        </div>
+    </a>
+    
+</div>
+    }

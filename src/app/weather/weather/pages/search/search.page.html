@@ -1,0 +1,19 @@
+<div>
+  <div class="search-container">
+    <p-autocomplete [(ngModel)]="city" [dropdown]="true" [suggestions]="filterOptions" optionLabel="LocalizedName"
+      (completeMethod)="search($event)" class="custom-input" (onSelect)="onSelect()"
+      (keypress)="restrictToEnglish($event)" />
+    @if(city!=null)
+    {
+    <p-button [icon]="isFillIcon?'pi pi-thumbs-down':'pi pi-thumbs-up'" [label]="favoriteTxt"
+      class=" p-button custom-button" (click)="manageFavoriteList()" />
+
+    }
+
+  </div>
+  <div class="weather-container">
+    <app-weather-card [weather]="currentWeather" class="weather-card"></app-weather-card>
+    <app-forecast [forecastData]="forecast" class="forecast"></app-forecast>
+
+  </div>
+</div>
