@@ -14,6 +14,7 @@ import { ForecastComponent } from '../forecast/forecast.component';
 import { catchError, throwError } from 'rxjs';
 import { MessageService } from 'primeng/api';
 import { MessageModule } from 'primeng/message';
+import { ADD_TO_FAVORITE, DEFAULT_CITY, REMOVE_TO_FAVORITE } from 'src/app/constants';
 
 // @UntilDestroy({ checkProperties: true })
 
@@ -44,8 +45,7 @@ export class SearchPage implements OnInit {
   ) {
   }
   async ngOnInit(): Promise<void> {
-    await this.filterCities('Tel Aviv');
-  
+    await this.filterCities(DEFAULT_CITY);  
       if (this.filterOptions.length > 0) {
           this.city = this.filterOptions[0];
           this.onSelect();
@@ -56,6 +56,32 @@ export class SearchPage implements OnInit {
     this.filterCities(event.query);
   }
 
+  AddRemoveFavoriteButton() {
+
+    let favoriteCities = this.favoritesService.getFavorites();
+
+    if (favoriteCities.findIndex(f => f.Key == this.city.Key) == (-1)) {
+      this.isFillIcon = true;
+      this.favoriteTxt = REMOVE_TO_FAVORITE;
+    }
+    else {
+      this.isFillIcon = false;
+      this.favoriteTxt = ADD_TO_FAVORITE;
+    }
+    this.cd.detectChanges();
+
+  }
+  onSelect() {
+    if (!this.city) {
+      return;
+    }
+
+
+    this.AddRemoveFavoriteButton();
+
+    this.loadCurrentWeather();
+    this.LoadForecast();
+  }
 
   async filterCities(cityName) : Promise<void> {
     this.resetData();
@@ -100,34 +126,17 @@ export class SearchPage implements OnInit {
     this.AddRemoveFavoriteButton();
   }
 
-
-  AddRemoveFavoriteButton() {
-
-    let favoriteCities = this.favoritesService.getFavorites();
-
-    if (favoriteCities.findIndex(f => f.Key == this.city.Key) == (-1)) {
-      this.isFillIcon = true;
-      this.favoriteTxt = 'Remove To Favorite';
+  restrictToEnglish(event: KeyboardEvent) {
+    this.resetData();
+    const pattern = /^[a-zA-Z\s]*$/;
+    if (!pattern.test(event.key)) {
+      event.preventDefault();
     }
-    else {
-      this.isFillIcon = false;
-      this.favoriteTxt = 'Add To Favorite';
-    }
-    this.cd.detectChanges();
-
-  }
-  onSelect() {
-    if (!this.city) {
-      return;
-    }
-
-
-    this.AddRemoveFavoriteButton();
-
-    this.loadCurrentWeather();
-    this.LoadForecast();
   }
 
+
+
+  
   loadCurrentWeather() {
     // const currentWeatherStorage = localStorage.getItem('currentWeather');
 
@@ -172,15 +181,7 @@ export class SearchPage implements OnInit {
       });
     //}
   }
-
-  restrictToEnglish(event: KeyboardEvent) {
-    this.resetData();
-    const pattern = /^[a-zA-Z\s]*$/;
-    if (!pattern.test(event.key)) {
-      event.preventDefault();
-    }
-  }
-
+  
   resetData()
   {
     this.city=null;
@@ -191,6 +192,7 @@ export class SearchPage implements OnInit {
   }
   showError(message: string) {
     this.messageService.add({ severity: 'error', summary: 'Error', detail: message });
+    this.cd.detectChanges();
   }  
 }
 

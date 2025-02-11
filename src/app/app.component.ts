@@ -4,12 +4,15 @@ import { ButtonModule } from 'primeng/button';
 import { LoaderService } from './core/services/loader.service';
 import { WeatherService } from './core/services/weather.service';
 import { SharedModule } from './shared/shared.module';
+import { MessageModule, } from 'primeng/message';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,ButtonModule,SharedModule],
   templateUrl: './app.component.html',
+  providers:[MessageService],
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
